@@ -12,3 +12,5 @@ npm install contentlayer next-contentlayer
 
 git y finales de linea
 https://docs.github.com/es/get-started/getting-started-with-git/configuring-git-to-handle-line-endings
+
+git config --global core.autocrlf

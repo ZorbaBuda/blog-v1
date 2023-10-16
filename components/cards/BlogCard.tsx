@@ -2,11 +2,13 @@
 import { format } from "date-fns";
 import * as React from "react";
 
-import Tag from "@/components/Tag";
+import Tag from "../Tag";
 import Link from "next/link";
 import { Card } from "flowbite-react";
 import Image from 'next/image'
 import logo from '@/public/biology-of-love.jpg'
+import { Post } from "@/.contentlayer/generated";
+import getFormattedDate from "@/lib/getFormattedDate";
 // import CloudinaryImg from '@/components/images/CloudinaryImg';
 // import UnstyledLink from '@/components/links/UnstyledLink';
 
@@ -23,26 +25,41 @@ import logo from '@/public/biology-of-love.jpg'
 //   checkTagged,
 //   onClick,
 // }: BlogCardProps) {
-export default function BlogCard() {
+
+type Props = {
+    post: Post
+}
+
+export default function BlogCard({post} : Props) {
+
+    const { slug, date, title, summary, tags } = post
+    const formattedDate = getFormattedDate(date)
+    
   return (
     
        <li className=" mt-5 py-10 ml-32 bg-black flex flex-wrap ">
       <section>
-        <Link href="/">
+        <Link href={`/blog/${slug}`}>
           <Image className="mx-auto px-5" alt={"hello"} src={logo} height={300} width={300} />
         </Link>
       </section>
       <section className="ml-40">
         <div className="text-xl  mt-16 text-white font-a_garamond_pro">
-          9/26/23
+        <time dateTime={formattedDate}>{formattedDate}</time> 
         </div>
         <h1 className="mt-16 text-[#a8a6a1] text-5xl font-orpheus_pro_regular">
-          Kink Shaming
+          {title}
         </h1>
+        <div className="mt-10 flex flex-wrap">
+                            {tags.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
+                          </div>
+                       
         <div className="mt-20 ">
           <Link
             className="text-xl text-[#a8a6a1] underline font-a_garamond_pro"
-            href="/"
+            href={`/blog/${slug}`}
           >
             Read More{" "}
           </Link>
