@@ -15,7 +15,7 @@ import { notFound } from 'next/navigation';
 // import useScrollSpy from '@/hooks/useScrollspy';
 import  MDXComponents  from '@/components/mdx-component';
 
-import heroImg from '@/public/surf-img.png'
+import heroImg from '@/public/hero-image.png'
 
 
 

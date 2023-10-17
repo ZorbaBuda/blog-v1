@@ -41,6 +41,8 @@ var Post = defineDocumentType(() => ({
     tags: { type: "list", of: { type: "string" }, default: [] },
     lastmod: { type: "date" },
     draft: { type: "boolean" },
+    // coverImage: { type: 'string', required: true },
+    // heroImage: { type: 'string', required: true },
     summary: { type: "string" },
     images: { type: "list", of: { type: "string" } },
     authors: { type: "list", of: { type: "string" } },
@@ -151,4 +153,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-7PTOK6KP.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-B7EBSOQY.mjs.map

@@ -1,6 +1,6 @@
-import BlogCard from "@/components/cards/BlogCard";
 import Image from "next/image";
 import { allPosts } from '@/.contentlayer/generated'
+import BlogCard2 from "@/components/BlogCard2";
 
 export default function Home() {
 
@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <>
-        <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"></ul>
+        <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-5"></div>
        
         {allPosts.map((post) => (
-          <BlogCard key={post._id} post={post} />
+          <BlogCard2 key={post._id} post={post} />
         ))}
       </>
     </main>

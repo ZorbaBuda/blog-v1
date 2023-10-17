@@ -26,6 +26,8 @@ type Meta = {
     title: string
     date: IsoDateTimeString
     tags: string[]
+    coverImage: string,
+    heroImage: string,
     lastmod?: IsoDateTimeString | undefined
     draft?: boolean | undefined
     summary?: string | undefined

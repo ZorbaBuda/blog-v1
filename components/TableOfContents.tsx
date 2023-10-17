@@ -1,8 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-//import { Disclosure } from "@headlessui/react";
-import { Alert, Dropdown } from "flowbite-react";
 
 import GithubSlugger from "github-slugger";
 import React, {

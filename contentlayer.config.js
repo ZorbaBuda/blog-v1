@@ -19,6 +19,8 @@ export const Post = defineDocumentType(() => ({
         tags: { type: 'list', of: { type: 'string' }, default: [] },
         lastmod: { type: 'date' },
         draft: { type: 'boolean' },
+        // coverImage: { type: 'string', required: true },
+        // heroImage: { type: 'string', required: true },
         summary: { type: 'string' },
         images: { type: 'list', of: { type: 'string' } },
         authors: { type: 'list', of: { type: 'string' } },
