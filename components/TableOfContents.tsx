@@ -99,107 +99,43 @@ const TableOfContents = ({ source }: TOCProps) => {
   }
 
   return (
-    <div  className='hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block'
-    >
-      <h3 className='text-gray-900 dark:text-gray-100 md:text-xl'>
+    <div className="hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block">
+      <h3 className="text-gray-900 dark:text-gray-100 md:text-xl">
         Table of Contents
       </h3>
-        {headings.map((heading, index) => {
-          return (
-           
-              <div
-                key={index}
-                href={`#${heading.id}`}
-                // className={clsx(
-                //   heading.id === activeId ? "font-bold" : "font-normal",
-                //   heading.level === 2 ? "pl-2" : "pl-6",
-                //   "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
-                // )}
-                className={clsx(
-                  'font-medium hover:text-gray-700 focus:outline-none dark:hover:text-gray-200',
-                  'focus-visible:text-gray-700 dark:focus-visible:text-gray-200',
-                  heading.level === 2 ? "pl-2" : "pl-6",
-                  heading.id === activeId
-                    ? 'text-gray-900 dark:text-gray-100'
-                    : 'text-gray-400 dark:text-gray-500'
-                )}
-
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector<any>(`#${heading.id}`).scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                    inline: "nearest",
-                  });
-                }}
-              >
-                {heading.text}
-              </div>
-           
-          );
-        })}
-      </div>
-      )
-      {/* <Disclosure
-        as="div"
-        className="flex flex-col Dropdown.Items-start justify-center"
-        defaultOpen={true}
-      >
-        {({ open }) => (
-          <>
-            <dt>
-              <Disclosure.Button
-                as="h3"
-                className="mb-4 flex flex-row flex-nowrap Dropdown.Items-center justify-start text-base font-medium text-dark"
-              >
-                <span className="animated-underline font-bold capitalize tracking-wide">
-                  Contents:
-                </span>
-                <span className="ml-20 flex Dropdown.Items-center md:ml-16">
-                  <RiArrowDownSLine
-                    className={clsxm(
-                      open ? "-rotate-180" : "rotate-0",
-                      "h-6 w-6 transform"
-                    )}
-                    aria-hidden="true"
-                  />
-                </span>
-              </Disclosure.Button>
-            </dt>
-            <Disclosure.Panel
-              as="dd"
-              className="flex flex-col Dropdown.Items-start justify-start"
-            >
-              {headings.map((heading, index) => {
-                return (
-                  <a
-                    key={index}
-                    href={`#${heading.id}`}
-                    className={clsxm(
-                      heading.id === activeId ? "font-bold" : "font-normal",
-                      heading.level === 2 ? "pl-2" : "pl-6",
-                      "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
-                    )}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.querySelector<any>(`#${heading.id}`).scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                        inline: "nearest",
-                      });
-                    }}
-                  >
-                    {heading.text}
-                  </a>
-                );
-              })}
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure> */}
-  
-  
-  
+      {headings.map((heading, index) => {
+        return (
+          <div
+            key={index}
+            href={`#${heading.id}`}
+            // className={clsx(
+            //   heading.id === activeId ? "font-bold" : "font-normal",
+            //   heading.level === 2 ? "pl-2" : "pl-6",
+            //   "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
+            // )}
+            className={clsx(
+              "font-medium hover:text-gray-700 focus:outline-none dark:hover:text-gray-200",
+              "focus-visible:text-gray-700 dark:focus-visible:text-gray-200",
+              heading.level === 2 ? "pl-2" : "pl-6",
+              heading.id === activeId
+                ? "text-gray-900 dark:text-gray-100"
+                : "text-gray-400 dark:text-gray-500"
+            )}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector<any>(`#${heading.id}`).scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
+            }}
+          >
+            {heading.text}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default TableOfContents;
