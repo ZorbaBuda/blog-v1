@@ -4,8 +4,8 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import * as React from 'react';
-import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
-import { MdHistory } from 'react-icons/md';
+// import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
+// import { MdHistory } from 'react-icons/md';
 
 import { allPosts } from '@/.contentlayer/generated';
 //import Component from '@/components/mdx-component';

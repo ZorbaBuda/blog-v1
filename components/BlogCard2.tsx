@@ -13,14 +13,25 @@ type Props = {
 };
 
 export default function BlogCard({ post }: Props) {
-  const { slug, date, title, summary, tags } = post;
+  const { banner, slug, date, title, summary, tags } = post;
   const formattedDate = getFormattedDate(date);
-
+  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${banner}`
+  const immUrl=`https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${banner}`
+  
+  console.log(imageUrl)
+  console.log(typeof imageUrl)
+console.log("equals? ", imageUrl === immUrl)
   return (
     <div className=" w-full lg:max-w-full lg:flex">
       <Link href={`/blog/${slug}`}>
         <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-          <Image alt="Janov" src={logo} />
+          <Image className="lazy overflow-hidden" 
+          alt={banner} 
+          src={immUrl} 
+           width={200} 
+           height={200}
+           
+           />
         </div>
         <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">

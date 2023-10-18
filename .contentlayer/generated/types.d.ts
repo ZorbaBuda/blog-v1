@@ -18,6 +18,7 @@ export type Post = {
   tags: string[]
   lastmod?: IsoDateTimeString | undefined
   draft?: boolean | undefined
+  banner: string
   summary?: string | undefined
   images?: string[] | undefined
   authors?: string[] | undefined
