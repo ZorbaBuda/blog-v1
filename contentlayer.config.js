@@ -20,7 +20,7 @@ export const Post = defineDocumentType(() => ({
         lastmod: { type: 'date' },
         draft: { type: 'boolean' },
         // coverImage: { type: 'string', required: true },
-        // heroImage: { type: 'string', required: true },
+         banner: { type: 'string', required: true },
         summary: { type: 'string' },
         images: { type: 'list', of: { type: 'string' } },
         authors: { type: 'list', of: { type: 'string' } },
