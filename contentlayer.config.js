@@ -1,5 +1,6 @@
 import { defineDocumentType } from 'contentlayer/source-files'
-import { makeSource } from 'contentlayer/source-remote-files';
+// import { makeSource } from 'contentlayer/source-remote-files';
+import { makeSource } from 'contentlayer/source-files';
 import { spawn } from 'node:child_process';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -202,9 +203,7 @@ const syncContentFromGit = async ({ contentDir, gitTag }) => {
       });
   });
 
-export default makeSource((sourceKey = 'main') => (
- 
-    { 
+export default makeSource((sourceKey = 'main') => ({ 
         syncFiles: (contentDir) =>
         syncContentFromGit({ contentDir, gitTag: sourceKey }),
         // contentDirPath: `blog-${sourceKey}`,
@@ -213,6 +212,7 @@ export default makeSource((sourceKey = 'main') => (
         documentTypes: [Post],
         disableImportAliasWarning: true,
         mdx: {
+          cwd: process.cwd(),
           rehypePlugins: [
             rehypeSlug,
             [
@@ -225,6 +225,12 @@ export default makeSource((sourceKey = 'main') => (
               },
             ],
           ]
+        },
+        onSuccess: async (importData) => {
+          console.log("onsuccess")
+          // const { allBlogs } = await importData()
+          // console.log("hi")
+          // createTagCount(allBlogs.length)
         }
        
     }
