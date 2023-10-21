@@ -99,7 +99,7 @@ const TableOfContents = ({ source }: TOCProps) => {
   }
 
   return (
-    <div className="hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block">
+    <div className="font-montserrat hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block">
       <h3 className="text-gray-900 dark:text-gray-100 md:text-xl">
         Table of Contents
       </h3>

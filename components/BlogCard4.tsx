@@ -18,9 +18,9 @@ export default function BlogCard({ post }: Props) {
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${banner}`
   const immUrl=`https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${banner}`
   
-  console.log(imageUrl)
-  console.log(typeof imageUrl)
-console.log("equals? ", imageUrl === immUrl)
+//   console.log(imageUrl)
+//   console.log(typeof imageUrl)
+// console.log("equals? ", imageUrl === immUrl)
   return (
 
     <li className=" border-slate-200 border-b max-w-2xl">

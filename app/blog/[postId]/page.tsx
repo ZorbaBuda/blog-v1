@@ -145,7 +145,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
             <hr className='dark:border-gray-600' />
 
             <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='mdx leading-relaxed text-xl prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+              <article className='font-lora mdx leading-relaxed text-xl prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
                <MDXComponents code={post.body.code} />
                 {/* <Component
                   components={

@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "LORA-REGULAR";
+  src: url("../public/fonts/lora/Lora-Regular.ttf");
+}
+
+@font-face {
+  font-family: "MONTSERRAT-REGULAR";
+  src: url("../public/fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+html {
+  font-family: "MONTSERRAT-REGULAR";
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
