@@ -7,6 +7,7 @@ import Link from "next/link";
 import logo from "@/public/biology-of-love.jpg";
 import { Post } from "@/.contentlayer/generated";
 import getFormattedDate from "@/lib/getFormattedDate";
+import Category from "./Category";
 
 type Props = {
   post: Post;
@@ -23,35 +24,35 @@ export default function BlogCard({ post }: Props) {
 // console.log("equals? ", imageUrl === immUrl)
   return (
 
-    <li className=" border-slate-200 border-b max-w-2xl">
-      <div className="py-5 flex overflow-hidden shadow-lg">
-      <Image className=" object-cover h-60 w-60" 
+    <li className=" border-slate-200 border-b xl:max-w-[920px]">
+      <div className="py-11 flex overflow-hidden shadow-lg">
+      <Image className=" object-cover h-60 w-80" 
           alt={banner} 
           src={immUrl} 
-           width={500} 
-           height={500}
+           width={700} 
+           height={700}
            loading='lazy'
            
            />
    
-     <div className="flex flex-col ml-4">
+     <div className=" flex flex-col ml-8">
       <div className=" text-sm">
      
       <div className=" flex flex-wrap ">
                  {tags.map((tag) => (
-                   <Tag key={tag} text={tag} />
+                   <Category key={tag} text={tag} />
                 ))}
               </div>
         </div>
         
-        <Link className="tracking-wide uppercase antialiased text-xl hover:text-slate-400" href={`/blog/${slug}`}>
+        <Link className="mt-5 tracking-wide uppercase antialiased text-2xl hover:text-slate-400" href={`/blog/${slug}`}>
           {title}
           </Link>
         <span className="mt-4 border-t-2 border-solid block w-10 border-slate-600"></span>
-        <div className=" mt-4 tracking-wide">
+        <div className="leading-loose  mt-4 tracking-normal font-lora line-clamp-4">
          {summary}
         </div>
-        <div>{formattedDate}</div>
+        <div className=" mt-5 font-lora  text-slate-500">{formattedDate}</div>
         </div>
         </div>
         

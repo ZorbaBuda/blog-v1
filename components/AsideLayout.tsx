@@ -13,7 +13,7 @@ export default function AsideLayout() {
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
   
   return (
-    <aside className='h-screen min-w-[10rem] max-w-[20rem]  p-[2rem]'>
+    <aside className=' min-w-[10rem] max-w-[300px]  '>
       
       <div className='flex items-center gap-[.6rem] h-[2.6rem] border px-[1rem] text-sm '>
        
@@ -25,6 +25,9 @@ export default function AsideLayout() {
          <AiOutlineSearch />
       </div>
       <div className=''>
+        <div className=''>
+        <div className='text-white text-center py-3'>TAGS</div>
+        </div>
       <div className="flex  flex-wrap">
           {tagKeys.length === 0 && 'No tags found.'}
           {sortedTags.map((t) => {

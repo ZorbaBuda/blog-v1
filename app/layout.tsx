@@ -3,6 +3,7 @@ import './globals.css'
 import './mdx.css';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import SectionContainer from '@/components/SectionContainer';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,13 +18,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
+    <html className="" lang="en">
         <Header />
+      <SectionContainer>
+      <div className="">
+      
        <main>
         {children}
         </main> 
-        </body>
+        </div>
+        </SectionContainer>
     </html>
   )
 }

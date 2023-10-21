@@ -7,7 +7,9 @@ import Link from 'next/link'
 
 function Header()  {
   return (
-    <header className="flex items-center justify-between py-10">
+    <header className="fixed w-full z-0 top-0 bg-[#161616] ">
+      <div className='flex  justify-between py-7 uppercase tracking-widest
+    mx-auto max-w-[1350px]  sm:px-6 xl:max-w-[1350px] xl:px-0'>
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between">
@@ -15,7 +17,7 @@ function Header()  {
               {/* <Logo /> */}
             </div>
             {typeof siteMetadata.headerTitle === 'string' ? (
-              <div className="hidden h-6 text-2xl font-semibold sm:block">
+              <div className="hidden h-6 text-xl  font-semibold sm:block">
                 {siteMetadata.headerTitle}
               </div>
             ) : (
@@ -40,6 +42,7 @@ function Header()  {
         {/* <SearchButton /> */}
         {/* <ThemeSwitch /> */}
         <MobileNav />
+      </div>
       </div>
     </header>
   )

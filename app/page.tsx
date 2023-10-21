@@ -23,19 +23,10 @@ export default function Home() {
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
 
   return (
-    // grid layout
-    //  <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    //  {/* <main className="flex items-center justify-between"> */}
-
-    //     <ul className=" mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-
-    // the book smugglers style
-    // <main className="flex  flex-1 flex-col items-center justify-between p-24">
-    <main className="flex  justify-center flex-[3]">
+    <main className="mt-24 flex  flex-wrap  flex-[3]">
       {/* <main className="flex items-center justify-between"> */}
       <div>
         <div>POSTS</div>
-
         <ul className="">
           {allPosts.map((post) => (
             <BlogCard key={post._id} post={post} />
