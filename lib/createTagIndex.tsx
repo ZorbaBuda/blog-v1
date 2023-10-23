@@ -1,31 +1,29 @@
-import GithubSlugger from 'github-slugger'
-import { writeFileSync } from 'fs'
+import GithubSlugger from "github-slugger";
+import { writeFileSync } from "fs";
 
-type tagRecord = {
-  tag: string,
-  docs: string[]
-}
+
+// const tagRecord2 = {
+//   "github" : ["file1", "file2", "file3"],
+//   "markdown" : ["file2", "file3", "file4"],
+// }
+
 
 export default function createTagIndex(allPosts) {
-  const records: tagRecord = {
-    tag: '',
-    docs: []
-  }
+  const tagRecord = {};
   allPosts.forEach((file) => {
-    // console.log(file.url)
-      file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
-        console.log(formattedTag)
-        if (formattedTag in records) {
-          records[formattedTag].push(file.url)
-          console.log(records);
-        } else {
-          //tagCount[formattedTag] = 1
-        }
-      })
-    
-  })
-  writeFileSync('./lib/tag-data.json', JSON.stringify(records))
+    file.tags.forEach((tag) => {
+      const formattedTag = GithubSlugger.slug(tag)
+      if (formattedTag in tagRecord) {
+        tagRecord[tag].push(file.filePath)
+      } else {
+        tagRecord[tag] = [];
+        tagRecord[tag].push(file.filePath)
+        
+      }
+    });
+  });
+
+  writeFileSync("./lib/tag-files.json", JSON.stringify(tagRecord));
 }
 
 // export default function createTagIndex(allPosts) {
@@ -39,7 +37,7 @@ export default function createTagIndex(allPosts) {
 //           tagCount[formattedTag] = 1
 //         }
 //       })
-    
+
 //   })
 //   writeFileSync('./lib/tag-data.json', JSON.stringify(tagCount))
 // }

@@ -12,6 +12,11 @@
   src: url("../public/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: "MINION-PRO-REGULAR";
+  src: url("../public/fonts/minion-pro/MinionPro-Regular.otf");
+}
+
 html {
   font-family: "MONTSERRAT-REGULAR";
 }

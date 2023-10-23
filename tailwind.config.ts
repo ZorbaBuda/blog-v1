@@ -12,6 +12,7 @@ const config: Config = {
       fontFamily: {
         lora: ["LORA-REGULAR"],
         montserrat: ["MONTSERRAT-REGULAR"],
+        minion_pro: ["MINION-PRO-REGULAR"]
       },
       colors: {
         primary: {

@@ -34,6 +34,7 @@ import TableOfContents from '@/components/TableOfContents';
 import UnstyledLink from '@/components/UnstyledLink';
 import Image from 'next/image';
 import Tag from '@/components/Tag';
+import PostHeader from '@/components/post/PostHeader';
 
 //import Tooltip from '@/components/Tooltip';
 
@@ -117,35 +118,12 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
         
         <section className=''>
           <div className='layout'>
-            <div className='pb-4 dark:border-gray-600'>
-              <Image
-                src={heroImg}
-                alt={`Photo`}
-                width={1200}
-                height={(1200 * 2) / 5}
-                // aspect={{ height: 2, width: 5 }}
-              />
-
-              <h1 className='mt-4'>{post.title}</h1>
-
-              <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
-                Written on{' '}
-                {format(new Date(post.date), 'MMMM dd, yyyy')} by
-                ZorbaBuda.
-              </p>
-              <div className="mt-2 flex flex-wrap">
-                            {post.tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-             
-          
-            </div>
+           <PostHeader post={post} />
 
             <hr className='dark:border-gray-600' />
 
             <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
-              <article className='font-lora mdx leading-relaxed text-xl prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+              <article className='text-white font-minion_pro mdx leading-relaxed text-xl prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
                <MDXComponents code={post.body.code} />
                 {/* <Component
                   components={

@@ -16,7 +16,7 @@ export default function Home() {
 
   //tag section
   //console.log(tagData)
- // createTagIndex(allPosts)
+  //createTagIndex(allPosts)
 
   const tagCounts = tagData as Record<string, number>;
   const tagKeys = Object.keys(tagCounts);
