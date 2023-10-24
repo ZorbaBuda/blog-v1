@@ -25,7 +25,7 @@ export default function ListLayout({posts}: Props) {
           ))}
         </ul>
       </div>
-      <AsideLayout />
+    
     </main>
     </>
   )
