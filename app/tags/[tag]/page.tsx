@@ -23,11 +23,6 @@ export default function page({ params} : { params: { tag: string }}) {
     })
     
   })
-
-
-  console.log(filtered)
-  // console.log(allPosts[0].filePath)
-  // const filtered = allPosts.filter((post) => post.filePath === tagFiles[0])
   
 
 

@@ -14,3 +14,8 @@ git y finales de linea
 https://docs.github.com/es/get-started/getting-started-with-git/configuring-git-to-handle-line-endings
 
 git config --global core.autocrlf
+
+
+coverImage: biology-of-love.jpg
+coverImage: moola-bandha-the-master-key.png
+coverImage: orgasmo-mujeres-richardson.png
