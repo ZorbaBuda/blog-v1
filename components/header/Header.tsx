@@ -1,13 +1,37 @@
+'use client'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 // import Logo from '@/public/logo.svg'
 import MobileNav from './MobileNav'
 import Link from 'next/link'
 // import ThemeSwitch from './ThemeSwitch'
+import React, {useState, useEffect} from 'react'
 
 function Header()  {
+
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+const [visible, setVisible] = useState(true)
+
+const handleScroll = () => {
+    const currentScrollPos = window.scrollY
+
+    if(currentScrollPos > prevScrollPos){
+        setVisible(false)
+    }else{
+        setVisible(true)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+}
+
+useEffect( () => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll)
+})
   return (
-    <header className="fixed w-full z-0 top-0 bg-[#161616] ">
+    <header className={`sticky w-full  bg-[#161616] ${visible ? 'top-0' : ''} `}>
+     {/* <header className="sticky w-full  bg-[#161616] "> */}
       <div className='flex  justify-between py-7 uppercase tracking-widest
     mx-auto max-w-[1350px]  sm:px-6 xl:max-w-[1350px] xl:px-0'>
       <div>

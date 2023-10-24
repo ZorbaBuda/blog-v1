@@ -14,10 +14,10 @@ type Props = {
 };
 
 export default function BlogCard({ post }: Props) {
-  const { banner, slug, date, title, summary, tags } = post;
+  const { coverImage, slug, date, title, summary, tags } = post;
   const formattedDate = getFormattedDate(date);
-  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${banner}`
-  const immUrl=`https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${banner}`
+  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${coverImage}`
+  const immUrl=`https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${coverImage}`
   
 //   console.log(imageUrl)
 //   console.log(typeof imageUrl)
@@ -26,11 +26,11 @@ export default function BlogCard({ post }: Props) {
 
     <li className=" border-slate-200 border-b xl:max-w-[920px]">
       <div className="py-11 flex overflow-hidden shadow-lg">
-      <Image className=" object-cover h-60 w-80" 
-          alt={banner} 
+      <Image className=" object-cover max-h-[250] min-w-[162px]" 
+          alt={coverImage} 
           src={immUrl} 
-           width={700} 
-           height={700}
+           width={162} 
+           height={250}
            loading='lazy'
            
            />

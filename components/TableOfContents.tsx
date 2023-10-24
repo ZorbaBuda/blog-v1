@@ -99,7 +99,7 @@ const TableOfContents = ({ source }: TOCProps) => {
   }
 
   return (
-    <div className="font-montserrat hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block">
+    <div className="font-newsreader_light hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block">
       <h3 className="text-gray-900 dark:text-gray-100 md:text-xl">
         Table of Contents
       </h3>
@@ -115,7 +115,7 @@ const TableOfContents = ({ source }: TOCProps) => {
             // )}
             className={clsx(
               "font-medium hover:text-gray-700 focus:outline-none dark:hover:text-gray-200",
-              "focus-visible:text-gray-700 dark:focus-visible:text-gray-200",
+              "focus-visible:text-gray-700 dark:focus-visible:text-gray-200 hover:ml-2 mt-2",
               heading.level === 2 ? "pl-2" : "pl-6",
               heading.id === activeId
                 ? "text-gray-900 dark:text-gray-100"

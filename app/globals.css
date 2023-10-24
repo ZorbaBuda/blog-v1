@@ -17,8 +17,14 @@
   src: url("../public/fonts/minion-pro/MinionPro-Regular.otf");
 }
 
+@font-face {
+  font-family: "NEWSREADER-LIGHT";
+  src: url("../public/fonts/newsreader/Newsreader_14pt-Light.ttf");
+}
+
+
 html {
-  font-family: "MONTSERRAT-REGULAR";
+  font-family: "NEWSREADER-LIGHT";
 }
 
 /* :root {

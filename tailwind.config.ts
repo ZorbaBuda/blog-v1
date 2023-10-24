@@ -12,7 +12,8 @@ const config: Config = {
       fontFamily: {
         lora: ["LORA-REGULAR"],
         montserrat: ["MONTSERRAT-REGULAR"],
-        minion_pro: ["MINION-PRO-REGULAR"]
+        minion_pro: ["MINION-PRO-REGULAR"],
+        newsreader_light: ["NEWSREADER-LIGHT"]
       },
       colors: {
         primary: {
@@ -28,7 +29,7 @@ const config: Config = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('@tailwindcss/line-clamp'),
+  
            ],
 };
 export default config;
