@@ -19,15 +19,17 @@ export default function RootLayout({
 }) {
   return (
     <html className="" lang="en">
+      <body>
         <Header />
       <SectionContainer>
-      <div className="">
+      
       
        <main>
         {children}
         </main> 
-        </div>
+     
         </SectionContainer>
+        </body>
     </html>
   )
 }

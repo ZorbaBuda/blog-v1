@@ -8,6 +8,7 @@ import Link from "next/link";
 import { slug } from "github-slugger";
 import Tag from "@/components/Tag";
 import AsideLayout from "@/components/AsideLayout";
+import ListLayout from "@/components/ListLayout";
 
 export default function Home() {
   if (!allPosts) {
@@ -23,17 +24,18 @@ export default function Home() {
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
 
   return (
-    <main className="mt-24 flex  flex-wrap  flex-[3]">
-      {/* <main className="flex items-center justify-between"> */}
-      <div>
-        <div>POSTS</div>
-        <ul className="">
-          {allPosts.map((post) => (
-            <BlogCard key={post._id} post={post} />
-          ))}
-        </ul>
-      </div>
-      <AsideLayout />
-    </main>
+    <ListLayout posts = {allPosts} />
+    // <main className="mt-24 flex  flex-wrap  flex-[3]">
+    //   {/* <main className="flex items-center justify-between"> */}
+    //   <div>
+    //     <div>POSTS</div>
+    //     <ul className="">
+    //       {allPosts.map((post) => (
+    //         <BlogCard key={post._id} post={post} />
+    //       ))}
+    //     </ul>
+    //   </div>
+    //   <AsideLayout />
+    // </main>
   );
 }

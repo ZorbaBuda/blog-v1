@@ -16,7 +16,7 @@ export default function Home() {
 
   //TODO sort tags
   const tagKeys = Object.keys(tagData)
-  console.log(typeof tagKeys)
+  console.log( tagKeys)
 
   return (
     <main className="mt-24 flex  flex-wrap  flex-[3]">
