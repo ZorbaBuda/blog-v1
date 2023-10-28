@@ -10,6 +10,24 @@ const nextConfig = {
         port: '',
         pathname: '/ZorbaBuda/blog-v1/main/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        port: '',
+        pathname: '/photos/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+        port: '',
+        pathname: '/random/**'
+      },
     ],
   },
 }

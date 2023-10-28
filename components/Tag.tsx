@@ -10,7 +10,7 @@ const Tag = ({ text }: Props) => {
       href={`/tags/${slug(text)}`}
       className="
       tracking-wide 
-      font-montserrat p-2   text-xs 
+      font-montserrat p-2 mr-5   text-xs 
       uppercase bg-[#252525] text-slate-300 hover:bg-gray-500 
       dark:hover:text-primary-400"
     >

@@ -23,7 +23,7 @@ export default function BlogCard({ post }: Props) {
   //   console.log(typeof imageUrl)
   // console.log("equals? ", imageUrl === immUrl)
   return (
-    <li className=" border-slate-200 border-b xl:max-w-[920px]">
+    <div className=" border-slate-200 border-b xl:max-w-[920px]">
       <div className="py-11 flex overflow-hidden shadow-lg">
         <Image
           className=" object-cover max-h-[250] min-w-[162px]"
@@ -63,6 +63,6 @@ export default function BlogCard({ post }: Props) {
           <div className=" mt-5 font-lora  text-slate-500">{formattedDate}</div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

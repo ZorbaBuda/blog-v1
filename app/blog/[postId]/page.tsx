@@ -31,6 +31,8 @@ import UnstyledLink from "@/components/UnstyledLink";
 import Image from "next/image";
 import Tag from "@/components/Tag";
 import PostHeader from "@/components/post/PostHeader";
+import useScrollSpy from "@/lib/useScrollspy";
+import { HeadingScrollSpy } from "@/components/TableOfContentsTemp";
 
 //import Tooltip from '@/components/Tooltip';
 
@@ -79,6 +81,27 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
     notFound();
   }
 
+  //#region  //*=========== Scrollspy ===========
+  // const activeSection = useScrollSpy();
+  // const [toc, setToc] = React.useState<HeadingScrollSpy>();
+  // const minLevel =
+  //   toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
+
+  // React.useEffect(() => {
+  //   const headings = document.querySelectorAll('.mdx h1, .mdx h2, .mdx h3');
+
+  //   const headingArr: HeadingScrollSpy = [];
+  //   headings.forEach((heading) => {
+  //     const id = heading.id;
+  //     const level = +heading.tagName.replace('H', '');
+  //     const text = heading.textContent + '';
+
+  //     headingArr.push({ id, level, text });
+  //   });
+
+  //   setToc(headingArr);
+  // }, [frontmatter.slug]);
+//#endregion  //*======== Scrollspy ===========
   return (
     <>
       <main>

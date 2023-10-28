@@ -15,12 +15,13 @@ export default function PostHeader({ post }: Props) {
     <Image
       src={heroImg}
       alt={`Photo`}
-      width={1200}
+      // width={1200}
+     
       height={(1200 * 2) / 5}
       // aspect={{ height: 2, width: 5 }}
     />
 
-    <h1 className='mt-4'>{post.title}</h1>
+    <div className='font-minion_pro mt-10 text-5xl bold'>{post.title}</div>
 
     <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
       Written on{' '}

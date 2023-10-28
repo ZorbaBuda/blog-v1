@@ -34,15 +34,27 @@ export default  function BlogCard({ post }: Props) {
   return (
 
     <div
-    className="w-[300px] h-[420px] bg-transparent cursor-pointer group perspective p-4 "
+    className="w-[300px] h-[420px] bg-transparent cursor-pointer group perspective p-4"
   >
     <div
-      className="  relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000"
+      className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000"
     >
-      
-      <div className="absolute backface-hidden border-4 w-full h-full rounded-2xl"
-       style={{background: `${bgGradient}` }}>
-
+      <div className="absolute backface-hidden border-2 w-full h-full">
+       
+        <Image
+        className=" w-full h-full"
+        src={immUrl}
+        alt="coverImage"
+        // width={324}
+        // height={500}
+        width={162}
+        height={250}
+      />
+      </div>
+      <div
+        className={`absolute my-rotate-y-180 backface-hidden w-full h-full  overflow-hidden`}
+        style={{background: `${bgGradient}` }}
+      >
         <div
           className="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24"
         >
@@ -57,24 +69,6 @@ export default  function BlogCard({ post }: Props) {
             Leer
           </button>
         </div>
-       
-     
-      </div>
-
-      <div
-        className={`absolute my-rotate-y-180 backface-hidden w-full h-full  overflow-hidden`}
-       
-      >
-          <Image
-        className=" w-full h-full"
-        src={immUrl}
-        alt="coverImage"
-        // width={324}
-        // height={500}
-        width={162}
-        height={250}
-      />
-        
       </div>
     </div>
   </div>

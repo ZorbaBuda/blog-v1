@@ -19,3 +19,17 @@ git config --global core.autocrlf
 coverImage: biology-of-love.jpg
 coverImage: moola-bandha-the-master-key.png
 coverImage: orgasmo-mujeres-richardson.png
+
+crtl + shift + l
+
+
+ {allPosts.map((post, index) => {
+            return (
+              <div
+                key={index}
+                className="carousel-item text-center relative w-64 h-64 snap-start"
+              >
+              <BlogCard key={post._id} post={post} />
+              </div>
+            );
+          })}

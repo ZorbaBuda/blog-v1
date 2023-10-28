@@ -224,7 +224,7 @@ export default makeSource((sourceKey = 'main') => ({
           ]
         },
         onSuccess: async (importData) => {
-          console.log("onsuccess")
+          //console.log(importData)
           // const { allBlogs } = await importData()
           // console.log("hi")
           // createTagCount(allBlogs.length)
