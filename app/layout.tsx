@@ -1,5 +1,6 @@
 import Header from '@/components/header/Header'
 import './globals.css'
+import '@mdxeditor/editor/style.css'
 import { Inter } from 'next/font/google'
 
 
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="" lang="en">
+    <html className="inter" lang="en" suppressHydrationWarning>
       <body className='bg-black text-white'>
 
       <div className='mx-auto px-4 sm:px-6  xl:px-0'>

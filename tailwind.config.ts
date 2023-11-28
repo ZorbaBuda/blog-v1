@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        lora: ["LORA-REGULAR"],
-        montserrat: ["MONTSERRAT-REGULAR"],
-        minion_pro: ["MINION-PRO-REGULAR"],
-        newsreader_light: ["NEWSREADER-LIGHT"]
+        // lora: ["LORA-REGULAR"],
+        // montserrat: ["MONTSERRAT-REGULAR"],
+        // minion_pro: ["MINION-PRO-REGULAR"],
+        // newsreader_light: ["NEWSREADER-LIGHT"]
       },
       colors: {
         primary: {

@@ -5,8 +5,8 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
     const req = await request.json();
     const resp = await upsertPost(req.slug, req.post, req?.sha);
-    revalidatePath(`/admin/posts/${req.slug}`);
-    revalidatePath(`/admin/posts`);
+    revalidatePath(`/edit_posts/${req.slug}`);
+    revalidatePath(`/edit_posts`);
     return NextResponse.json(resp.data);
 }
 
@@ -17,8 +17,8 @@ export async function GET(request: Request) {
     let buff = Buffer.from(resp.content, 'base64');
     let text = buff.toString('utf-8');
 
-    revalidatePath(`/admin/posts/${slug}`);
-    revalidatePath(`/admin/posts`);
+    revalidatePath(`/edit_posts/${slug}`);
+    revalidatePath(`/edit_posts`);
 
     return NextResponse.json({
         content: text,

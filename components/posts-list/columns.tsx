@@ -31,7 +31,7 @@ async function deleteData(url: string, sha: string) {
   const onDelete = async(post: PostItem) => {
     await deleteData(`/api/posts/${post.name}`, post.sha);
 
-    window.location.href = "/admin/posts"
+    window.location.href = "/edit_posts"
   };
 
 // This type is used to define the shape of our data.
@@ -49,7 +49,7 @@ export const columns: ColumnDef<PostItem>[] = [
     cell: ({ row } : any) => {
       const fileName: string = row.getValue("name");
 
-      return  <Link href={`/admin/posts/${fileName}`}>{fileName}</Link>
+      return  <Link href={`/edit_posts/${fileName}`}>{fileName}</Link>
     }
   },
   {
