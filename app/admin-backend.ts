@@ -5,9 +5,12 @@ const githubToken = process.env.GITHUB_TOKEN;
 console.log(githubToken);
 
 export async function upsertPost(slug: string, post: string, sha?: string) {
+  console.log(post ,'😜')
     const octokit = new Octokit({ auth: githubToken });
     let buff = Buffer.from(post);
     let base64data = buff.toString('base64')
+
+
 
     var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/content/posts/${slug}`, {
         owner: 'ZorbaBuda',
@@ -25,6 +28,7 @@ export async function upsertPost(slug: string, post: string, sha?: string) {
         sha
     });
 
+
     return resp;
 }
 
@@ -33,6 +37,7 @@ export async function uploadFile(file: File) {
   const buffer = Buffer.from(bytes);
   let base64data = buffer.toString('base64')
 
+  console.log(file ,'😜')
   const octokit = new Octokit({ auth: githubToken });
 
   var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/public/${file.name}`, {

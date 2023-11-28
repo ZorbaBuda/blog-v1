@@ -1,35 +1,15 @@
-npx create-next-app@latest y resto de pasos
+--- 
+title: post
+date: November 28, 2023
+tags:
+  - janov
+  - trauma
+category: mente
+summary: bla bla bla bla bla bla
+bookAuthor: janov
+bookYear: 1973
+coverImage: pic13.jpg
+draft: false
+---
 
-page.tsx : eliminamos todo el contenido en <main>
-
-
-Header
-
-blog card 
-
-npm install contentlayer next-contentlayer
-
-
-git y finales de linea
-https://docs.github.com/es/get-started/getting-started-with-git/configuring-git-to-handle-line-endings
-
-git config --global core.autocrlf
-
-
-coverImage: biology-of-love.jpg
-coverImage: moola-bandha-the-master-key.png
-coverImage: orgasmo-mujeres-richardson.png
-
-crtl + shift + l
-
-
- {allPosts.map((post, index) => {
-            return (
-              <div
-                key={index}
-                className="carousel-item text-center relative w-64 h-64 snap-start"
-              >
-              <BlogCard key={post._id} post={post} />
-              </div>
-            );
-          })}
+Introduciendo un nuevo post

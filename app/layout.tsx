@@ -1,9 +1,6 @@
 import Header from '@/components/header/Header'
 import './globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import SectionContainer from '@/components/SectionContainer';
-import Footer from '@/components/Footer';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,12 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html className="" lang="en">
-      <body>
-      <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0'>
-          <div className="flex h-screen flex-col justify-between">
-            {/* <Header navLinks={headerNavLinks} /> */}
+      <body className='bg-black text-white'>
+
+      <div className='mx-auto px-4 sm:px-6  xl:px-0'>
+          <div className=" ">
             <Header />
-            <main className="mb-auto">{children}</main>
+            <main className="px-10">{children}</main>
           </div>
         </div>
         </body>
