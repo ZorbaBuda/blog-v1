@@ -20,7 +20,7 @@ export default async function page() {
 
       return {
         ...githubPost,
-        date: generatedPost.date,
+        // date: generatedPost.date,
         status: generatedPost ? "published" : "publishing",
       };
     })
