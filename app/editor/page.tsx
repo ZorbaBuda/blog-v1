@@ -8,6 +8,9 @@ const markdown = `
 # Hello world!
 Check the EditorComponent.tsx file for the code .
 `
+
+// const markdown = " Hello worldCheck the EditorComponent.tsx file for the code ."
+
 export default function Home() {
   return (
     
