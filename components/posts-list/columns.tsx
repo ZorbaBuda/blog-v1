@@ -49,7 +49,7 @@ export const columns: ColumnDef<PostItem>[] = [
     cell: ({ row } : any) => {
       const fileName: string = row.getValue("name");
 
-      return  <Link href={`/edit_posts/${fileName}`}>{fileName}</Link>
+      return  <Link href={`/edit_post/${fileName}`}>{fileName}</Link>
     }
   },
   {

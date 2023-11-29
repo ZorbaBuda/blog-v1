@@ -2,28 +2,35 @@
 
 import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
-import CodeMirror, { BasicSetupOptions } from '@uiw/react-codemirror';
-import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-import { languages } from '@codemirror/language-data';
-import { githubDark } from '@uiw/codemirror-theme-github';
+import CodeMirror, { BasicSetupOptions } from "@uiw/react-codemirror";
+import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
+import { languages } from "@codemirror/language-data";
+import { githubDark } from "@uiw/codemirror-theme-github";
 import { EditorView } from "@codemirror/view";
 import { Button } from "./button";
-import { Input } from "./input"
+import { Input } from "./input";
 import { Label } from "./label";
 import { defaultTemplate } from "@/data/frontmatter-template";
 import { postData } from "@/lib/http-post";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { MDXEditorMethods } from "@mdxeditor/editor";
-const EditorComp = dynamic(() => import('@/components/post-mdxEditor/EditorComponent'), { ssr: false })
-
+const EditorComp = dynamic(
+  () => import("@/components/post-mdxEditor/EditorComponent"),
+  { ssr: false }
+);
 
 const setupOptions: BasicSetupOptions = {
   lineNumbers: false,
-  foldGutter: false
-}
+  foldGutter: false,
+};
 
-export default function Post(props: { content: string, fileName: string, sha: string, path: string }) {
-
+export default function Post(props: {
+  content: string;
+  fileName: string;
+  sha: string;
+  path: string;
+  type: string;
+}) {
   const [postMD, setPostMD] = useState(props.content || defaultTemplate);
   // console.log(postMD)
   const [file, setFile] = useState<File>();
@@ -34,67 +41,81 @@ export default function Post(props: { content: string, fileName: string, sha: st
 
   const router = useRouter();
 
-  const editorRef = React.useRef<MDXEditorMethods>(null)
+  const editorRef = React.useRef<MDXEditorMethods>(null);
 
   function handleChange() {
-    // console.log(newPostMd)
-    // setPostMD(newPostMd)
-    console.log("👌 parent")
-  // console.log(editorRef.current?.getMarkdown())
-  const text = editorRef.current?.getMarkdown()
-  
-   setPostMD(text)
-   console.log("postMD:", postMD)
-  } 
+    console.log("👌 parent");
+    const text = editorRef.current?.getMarkdown();
+    //TODO what the heck
+    if (text !== undefined) setPostMD(text);
+  }
 
   const onSubmit = () => {
-
-    const finalSlug = slug.endsWith(".mdx") ? slug : slug + '.mdx'
-console.log(finalSlug, '🚀')
+    const finalSlug = slug.endsWith(".mdx") ? slug : slug + ".mdx";
+    console.log(finalSlug, "🚀");
     postData("/api/posts", {
       post: postMD,
       slug: finalSlug,
-      sha: sha
+      sha: sha,
     });
     router.refresh();
-    router.push('/editor');
+    router.push("/editor");
   };
 
   const uploadImage = async (file: File | undefined) => {
     setFile(file);
     //e.preventDefault()
-    if (!file) return
+    if (!file) return;
 
     try {
-      const data = new FormData()
-      data.set('file', file)
+      const data = new FormData();
+      data.set("file", file);
 
-      const res = await fetch('/api/images', {
-        method: 'POST',
-        body: data
-      })
+      const res = await fetch("/api/images", {
+        method: "POST",
+        body: data,
+      });
       // handle the error
-      if (!res.ok) throw new Error(await res.text())
+      if (!res.ok) throw new Error(await res.text());
     } catch (e: any) {
       // Handle errors here
-      console.error(e)
+      console.error(e);
     }
-  }
+  };
 
-  const txt = "Hello"
+  const txt = "Hello";
 
   return (
     <div className="container">
-      <Label className="w-50 justify-end" htmlFor="picture">Upload image</Label>
-        <Input className="w-50 justify-end" id="file" type="file" name="file" onChange={(e) => uploadImage(e.target.files?.[0])} />
+      <Label className="w-50 justify-end" htmlFor="picture">
+        Upload image
+      </Label>
+      <Input
+        className="w-50 justify-end"
+        id="file"
+        type="file"
+        name="file"
+        onChange={(e) => uploadImage(e.target.files?.[0])}
+      />
 
-    
-      <Button className="mt-2 mb-4 w-40 float-right" onClick={() => onSubmit()}>Post</Button>
+      <Button className="mt-2 mb-4 w-40 float-right" onClick={() => onSubmit()}>
+        Post
+      </Button>
       <div className="grid w-full items-center gap-1.5 mb-5">
         <Label htmlFor="slug">Slug</Label>
-        <Input type="slug" id="slug" placeholder="slug" value={slug} onChange={e => setSlug(e.target.value)}  />
-       </div>
-       <EditorComp markdown={postMD} editorRef={editorRef}  change={handleChange} />
+        <Input
+          type="slug"
+          id="slug"
+          placeholder="slug"
+          value={slug}
+          onChange={(e) => setSlug(e.target.value)}
+        />
+      </div>
+      <EditorComp
+        markdown={postMD}
+        editorRef={editorRef}
+        change={handleChange}
+      />
       {/* <CodeMirror
         value={postMD}
         theme={githubDark}

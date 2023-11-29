@@ -5,7 +5,7 @@ const githubToken = process.env.GITHUB_TOKEN;
 console.log(githubToken);
 
 export async function upsertPost(slug: string, post: string, sha?: string) {
-  console.log(post ,'😜')
+  // console.log(post ,'😜')
     const octokit = new Octokit({ auth: githubToken });
     let buff = Buffer.from(post);
     let base64data = buff.toString('base64')
@@ -37,7 +37,7 @@ export async function uploadFile(file: File) {
   const buffer = Buffer.from(bytes);
   let base64data = buffer.toString('base64')
 
-  console.log(file ,'😜')
+  // console.log(file ,'😜')
   const octokit = new Octokit({ auth: githubToken });
 
   var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/public/${file.name}`, {
@@ -112,4 +112,26 @@ export async function deletePost(fileName: string, sha: string) {
   });
 
   return resp;
+}
+
+export async function getAboutPost() {
+  const octokit = new Octokit({ auth: githubToken });
+  var resp = await octokit.request(`GET /repos/ZorbaBuda/blog-v4/contents/content/about/about.mdx`, {
+      owner: 'ZorbaBuda',
+      repo: 'blog-v4',
+      path: 'about',
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+  });
+
+  let buff = Buffer.from(resp.data.content, 'base64');
+  let text = buff.toString('utf-8');
+
+  return {
+    content: text,
+    fileName: 'about.mdx',
+    path: resp.data.path,
+    sha: resp.data.sha
+  };
 }
