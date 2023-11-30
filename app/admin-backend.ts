@@ -135,3 +135,32 @@ export async function getAboutPost() {
     sha: resp.data.sha
   };
 }
+
+
+export async function upsertAbout( post: string, sha?: string) {
+   console.log(post ,'😜')
+    const octokit = new Octokit({ auth: githubToken });
+    let buff = Buffer.from(post);
+    let base64data = buff.toString('base64')
+
+
+
+    var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/content/about/about.mdx`, {
+        owner: 'ZorbaBuda',
+        repo: 'blog-v4',
+        path: './about',
+        message: 'about updated',
+        committer: {
+          name: 'admin',
+          email: 'pacoaraz1311@gmail.com'
+        },
+        content: base64data,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        sha
+    });
+
+
+    return resp;
+}

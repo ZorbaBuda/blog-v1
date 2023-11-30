@@ -11,8 +11,14 @@ function Header()  {
 
 
   return (
-    <header className={`sticky   bg-[#161616] inline-flex justify-around `}>
-
+    <header className={` w-full mx-auto  border-y-[1px]  uppercase
+    border-[#383A3C] sticky
+    dark:bg-[#121212] dark:text-white
+    text-black bg-[#EEEEEE]
+    flex justify-center
+       `}>
+      <nav className='mx-auto    flex  items-center justify-between
+   lg:h-16  h-auto   py-3  xl:px-0 px-2 lg:px-5'>
      
       <div className="flex justify-center uppercase py-7  space-x-8 ">
        
@@ -21,18 +27,18 @@ function Header()  {
             <Link
               key={link.title}
               href={link.href}
-              className=" font-medium text-white dark:text-white"
+              className=" font-medium text-black dark:text-white"
             >
               {link.title}
             </Link>
           ))}
       
       </div>
-      <div className="">
-
-      <ThemeSwitcher className="mr-5" />
+      <div className="ml-10">
+     
+      <ThemeSwitcher className="" />
       </div>
-      
+      </nav>
     </header>
   )
 }

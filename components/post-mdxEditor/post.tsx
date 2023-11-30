@@ -11,7 +11,7 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { Label } from "./label";
 import { defaultTemplate } from "@/data/frontmatter-template";
-import { postData } from "@/lib/http-post";
+import { postData, aboutData } from "@/lib/http-post";
 import dynamic from "next/dynamic";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 const EditorComp = dynamic(
@@ -32,7 +32,7 @@ export default function Post(props: {
   type: string;
 }) {
   const [postMD, setPostMD] = useState(props.content || defaultTemplate);
-  // console.log(postMD)
+  console.log(props.type);
   const [file, setFile] = useState<File>();
 
   const [slug, setSlug] = useState(props.fileName);
@@ -51,13 +51,20 @@ export default function Post(props: {
   }
 
   const onSubmit = () => {
-    const finalSlug = slug.endsWith(".mdx") ? slug : slug + ".mdx";
-    console.log(finalSlug, "🚀");
-    postData("/api/posts", {
-      post: postMD,
-      slug: finalSlug,
-      sha: sha,
-    });
+    if (props.type === "post") {
+      const finalSlug = slug.endsWith(".mdx") ? slug : slug + ".mdx";
+      postData("/api/posts", {
+        post: postMD,
+        slug: finalSlug,
+        sha: sha,
+      });
+    }else if(props.type === "about") {
+      // console.log(postMD)
+       aboutData("/api/about", {
+         about: postMD,
+         sha: sha,
+       })
+    }
     router.refresh();
     router.push("/editor");
   };
@@ -83,23 +90,21 @@ export default function Post(props: {
     }
   };
 
-  const txt = "Hello";
-
   return (
     <div className="container">
-      <Label className="w-50 justify-end" htmlFor="picture">
+      <Label className="w-50 justify-end" htmlFor="imageFile">
         Upload image
       </Label>
       <Input
         className="w-50 justify-end"
-        id="file"
+        id="imageFile"
         type="file"
         name="file"
         onChange={(e) => uploadImage(e.target.files?.[0])}
       />
 
       <Button className="mt-2 mb-4 w-40 float-right" onClick={() => onSubmit()}>
-        Post
+        {props.type === "post" ? "Save post" : "Save About"}
       </Button>
       <div className="grid w-full items-center gap-1.5 mb-5">
         <Label htmlFor="slug">Slug</Label>

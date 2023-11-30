@@ -1,5 +1,5 @@
 import Header from "@/components/header/Header";
-import "./globals.css";
+import "./globals.scss";
 import "@mdxeditor/editor/style.css";
 import { Inter } from "next/font/google";
 import { ThemeProviders } from "./theme-providers";

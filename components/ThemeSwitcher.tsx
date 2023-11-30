@@ -16,6 +16,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
         <div className={`theme-switcher ${className}`}>
           <input
             id="theme-switcher"
+            hidden
             type="checkbox"
             defaultChecked={
               mounted && (theme === "dark" || resolvedTheme === "dark")
