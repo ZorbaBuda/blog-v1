@@ -15,7 +15,7 @@ export default function RootLayout({
     <html className="inter" lang="en" suppressHydrationWarning>
       <body className="bg-black text-white">
         <ThemeProviders>
-          <div className="mx-auto px-4 sm:px-6  xl:px-0">
+          <div className="mx-auto ">
             <div className=" ">
               <Header />
               <main className="px-10">{children}</main>

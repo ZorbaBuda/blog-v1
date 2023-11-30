@@ -62,6 +62,7 @@ export async function getAllPosts() {
     const octokit = new Octokit({ auth: githubToken });
     var resp = await octokit.request(`GET /repos/ZorbaBuda/blog-v4/contents/content/posts`, {
         owner: 'ZorbaBuda',
+        // ref: 'testo0',
         repo: 'blog-v4',
         path: 'posts',
         headers: {
@@ -137,13 +138,11 @@ export async function getAboutPost() {
 }
 
 
-export async function upsertAbout( post: string, sha?: string) {
-   console.log(post ,'😜')
+export async function upsertAbout( about: string, sha?: string) {
+   console.log(about ,'😜')
     const octokit = new Octokit({ auth: githubToken });
-    let buff = Buffer.from(post);
+    let buff = Buffer.from(about);
     let base64data = buff.toString('base64')
-
-
 
     var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/content/about/about.mdx`, {
         owner: 'ZorbaBuda',

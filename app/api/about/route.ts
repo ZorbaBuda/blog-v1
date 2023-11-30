@@ -5,8 +5,8 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
    
     const req = await request.json();
-     console.log(req.post)
-    const resp = await upsertAbout( req.post, req?.sha);
+    //  console.log(req.about, '❤')
+    const resp = await upsertAbout( req.about, req?.sha);
     revalidatePath(`/edit_posts/${req.slug}`);
     revalidatePath(`/edit_posts`);
     return NextResponse.json(resp.data);

@@ -17,10 +17,9 @@ function Header()  {
     text-black bg-[#EEEEEE]
     flex justify-center
        `}>
-      <nav className='mx-auto    flex  items-center justify-between
-   lg:h-16  h-auto   py-3  xl:px-0 px-2 lg:px-5'>
+      <nav className='   flex  flex-wrap items-center justify-between  py-3  '>
      
-      <div className="flex justify-center uppercase py-7  space-x-8 ">
+      <div className="px-5 md:px-0 flex  flex-wrap justify-center uppercase py-7  space-x-8 ">
        
         {headerNavLinks 
           .map((link) => (

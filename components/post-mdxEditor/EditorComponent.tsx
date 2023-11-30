@@ -4,7 +4,7 @@ import { MDXEditor, MDXEditorMethods } from '@mdxeditor/editor/MDXEditor'
 import { UndoRedo } from '@mdxeditor/editor/plugins/toolbar/components/UndoRedo'
 import { BoldItalicUnderlineToggles } from '@mdxeditor/editor/plugins/toolbar/components/BoldItalicUnderlineToggles'
 import { toolbarPlugin } from '@mdxeditor/editor/plugins/toolbar'
-import { AdmonitionDirectiveDescriptor, CreateLink, DiffSourceToggleWrapper, InsertAdmonition, InsertFrontmatter, InsertThematicBreak, ListsToggle, diffSourcePlugin, directivesPlugin, headingsPlugin, imagePlugin, linkPlugin, listsPlugin } from '@mdxeditor/editor'
+import { AdmonitionDirectiveDescriptor, CreateLink, DiffSourceToggleWrapper, InsertAdmonition, InsertCodeBlock, InsertFrontmatter, InsertThematicBreak, ListsToggle, diffSourcePlugin, directivesPlugin, headingsPlugin, imagePlugin, linkPlugin, listsPlugin } from '@mdxeditor/editor'
 import React, { useState } from "react"
 import {FC} from 'react'
 import { BlockTypeSelect, InsertImage, Separator } from '@mdxeditor/editor'
@@ -34,6 +34,7 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef, change }) => {
     <div className='bg-slate-400 overflow-auto'>
   <MDXEditor ref={editorRef}  markdown={markdown} onChange={handleChange}
   plugins={[
+    
     headingsPlugin(),
     imagePlugin(),
     linkDialogPlugin(),
@@ -62,6 +63,7 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef, change }) => {
         <InsertFrontmatter />
         <InsertThematicBreak />
         </DiffSourceToggleWrapper>
+        
         )
   })]}
    />

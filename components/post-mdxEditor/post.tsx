@@ -32,7 +32,7 @@ export default function Post(props: {
   type: string;
 }) {
   const [postMD, setPostMD] = useState(props.content || defaultTemplate);
-  console.log(props.type);
+  // console.log(props.type);
   const [file, setFile] = useState<File>();
 
   const [slug, setSlug] = useState(props.fileName);
@@ -59,7 +59,7 @@ export default function Post(props: {
         sha: sha,
       });
     }else if(props.type === "about") {
-      // console.log(postMD)
+      //  console.log(postMD, '✔')
        aboutData("/api/about", {
          about: postMD,
          sha: sha,
