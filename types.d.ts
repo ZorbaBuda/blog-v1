@@ -41,3 +41,10 @@ type Meta = {
     url: string
     slug: string
   }  
+
+  type githubPost = {
+    content: string,
+    fileName: string,
+    path: string,
+    sha: string,
+  }

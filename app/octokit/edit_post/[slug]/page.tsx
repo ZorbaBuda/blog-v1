@@ -1,16 +1,14 @@
-import Post from '@/components/post';
+import Post from '@/components/post-mdxEditor/post';
 import { redirect } from 'next/navigation';
 import { getPost } from '@/app/admin-backend';
 
 const PostPage = async({ params }: { params: { slug: string } }) => {
   
-  
-console.log(params.slug, '❤')
   const post = await getPost(params.slug);
 
   return (
     <div className='flex justify-center'>
-       <Post {...post} />
+       <Post {...post} type={'post'} />
     </div>
   )
 }

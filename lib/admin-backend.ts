@@ -1,4 +1,5 @@
 import { Octokit, App } from "octokit";
+import saveGithubPost from "./saveGithubPost";
 // "octokit": "^2.0.14",
 const githubToken = process.env.GITHUB_TOKEN;
 
@@ -76,6 +77,7 @@ export async function getAllPosts() {
 }
 
 export async function getPost(fileName: string) {
+  console.log(fileName)
   const octokit = new Octokit({ auth: githubToken });
   var resp = await octokit.request(`GET /repos/ZorbaBuda/blog-v4/contents/content/posts/${fileName}`, {
       owner: 'ZorbaBuda',
@@ -88,6 +90,8 @@ export async function getPost(fileName: string) {
 
   let buff = Buffer.from(resp.data.content, 'base64');
   let text = buff.toString('utf-8');
+
+  // saveGithubPost(buff, fileName)
 
   return {
     content: text,

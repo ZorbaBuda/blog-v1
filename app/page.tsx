@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { allPosts } from "@/.contentlayer/generated";
-import createTagIndex from "@/lib/createTagIndex";
+import createTagIndex from "@/lib/saveGithubPost";
 import createCategoryIndex from "@/lib/createCategoryIndex";
 import { create } from "domain";
 import tagData from "@/lib/tag-data.json";
