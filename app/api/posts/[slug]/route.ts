@@ -9,9 +9,9 @@ export async function DELETE(request: Request,
     },) {
 
     const sha = request.headers.get('sha')!
-    console.log('---------> del route', sha, params.slug);
+    // console.log('---------> del route', sha, params.slug);
     const resp = await deletePost(params.slug, sha);
 
-    console.log(resp);
+    // console.log(resp);
     return NextResponse.json(resp);
 }

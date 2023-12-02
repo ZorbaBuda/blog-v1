@@ -59,6 +59,7 @@ export async function uploadFile(file: File) {
 
 
 export async function getAllPosts() {
+  console.log('🤣', githubToken)
     const octokit = new Octokit({ auth: githubToken });
     var resp = await octokit.request(`GET /repos/ZorbaBuda/blog-v4/contents/content/posts`, {
         owner: 'ZorbaBuda',

@@ -36,7 +36,7 @@ export type Post = {
   summary?: string | undefined
   bookAuthor?: string | undefined
   bookYear?: string | undefined
-  pattern?: string | undefined
+  draft?: string | undefined
   /** MDX file body */
   body: MDX
   url: string

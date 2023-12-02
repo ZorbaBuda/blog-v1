@@ -5,16 +5,17 @@ const githubToken = process.env.GITHUB_TOKEN;
 // console.log(githubToken);
 
 export async function upsertPost(slug: string, post: string, sha?: string) {
-   console.log(post ,'😜')
+  //  console.log(post ,'😜')
     const octokit = new Octokit({ auth: githubToken });
     let buff = Buffer.from(post);
     let base64data = buff.toString('base64')
+
+
 
     var resp = await octokit.request(`PUT /repos/ZorbaBuda/blog-v4/contents/content/posts/${slug}`, {
         owner: 'ZorbaBuda',
         repo: 'blog-v4',
         path: './posts',
-        // "branch": "main",
         message: 'my commit message',
         committer: {
           name: 'admin',
@@ -27,7 +28,7 @@ export async function upsertPost(slug: string, post: string, sha?: string) {
         sha
     });
 
-console.log(resp)
+
     return resp;
 }
 
@@ -57,14 +58,12 @@ export async function uploadFile(file: File) {
   return resp;
 }
 
-
 export async function getAllPosts() {
     const octokit = new Octokit({ auth: githubToken });
     var resp = await octokit.request(`GET /repos/ZorbaBuda/blog-v4/contents/content/posts`, {
         owner: 'ZorbaBuda',
         // ref: 'testo0',
         repo: 'blog-v4',
-        "branch": "main",
         path: 'posts',
         headers: {
           'X-GitHub-Api-Version': '2022-11-28'
@@ -122,7 +121,6 @@ export async function getAboutPost() {
       owner: 'ZorbaBuda',
       repo: 'blog-v4',
       path: 'about',
-      "branch": "main",
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
       }
@@ -141,7 +139,7 @@ export async function getAboutPost() {
 
 
 export async function upsertAbout( about: string, sha?: string) {
-  //  console.log(about ,'😜')
+   console.log(about ,'😜')
     const octokit = new Octokit({ auth: githubToken });
     let buff = Buffer.from(about);
     let base64data = buff.toString('base64')

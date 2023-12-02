@@ -1,15 +1,47 @@
---- 
-title: post
-date: November 28, 2023
-tags:
-  - janov
-  - trauma
-category: mente
-summary: bla bla bla bla bla bla
-bookAuthor: janov
-bookYear: 1973
-coverImage: pic13.jpg
-draft: false
----
+get posts
 
-Introduciendo un nuevo post
+  {
+    name: 'test1.mdx',
+    path: 'content/posts/test1.mdx',
+    sha: '734b07b261d0f79394a40ab1080444c742958d5b',
+    size: 1758,
+    url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/test1.mdx?ref=main',
+    html_url: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/test1.mdx',
+    git_url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/734b07b261d0f79394a40ab1080444c742958d5b',    download_url: 'https://raw.githubusercontent.com/ZorbaBuda/blog-v4/main/content/posts/test1.mdx',
+    type: 'file',
+    _links: {
+      self: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/test1.mdx?ref=main',
+      git: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/734b07b261d0f79394a40ab1080444c742958d5b',  
+      html: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/test1.mdx'
+    }
+  },
+  {
+    name: 'the-time-machine.mdx',
+    path: 'content/posts/the-time-machine.mdx',
+    sha: '0c7031e99c698d8049c20d5b48c3739c4b5635b0',
+    size: 10863,
+    url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/the-time-machine.mdx?ref=main',  
+    html_url: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/the-time-machine.mdx',
+    git_url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/0c7031e99c698d8049c20d5b48c3739c4b5635b0',    download_url: 'https://raw.githubusercontent.com/ZorbaBuda/blog-v4/main/content/posts/the-time-machine.mdx', 
+    type: 'file',
+    _links: {
+      self: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/the-time-machine.mdx?ref=main',
+      git: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/0c7031e99c698d8049c20d5b48c3739c4b5635b0',  
+      html: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/the-time-machine.mdx'
+    }
+  },
+  {
+    name: 'the-time-machineW.mdx',
+    path: 'content/posts/the-time-machineW.mdx',
+    sha: 'e523c894e1c3301d9e3f1dd34a6731751853adb0',
+    size: 10830,
+    url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/the-time-machineW.mdx?ref=main', 
+    html_url: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/the-time-machineW.mdx',
+    git_url: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/e523c894e1c3301d9e3f1dd34a6731751853adb0',    download_url: 'https://raw.githubusercontent.com/ZorbaBuda/blog-v4/main/content/posts/the-time-machineW.mdx',    type: 'file',
+    _links: {
+      self: 'https://api.github.com/repos/ZorbaBuda/blog-v4/contents/content/posts/the-time-machineW.mdx?ref=main',
+      git: 'https://api.github.com/repos/ZorbaBuda/blog-v4/git/blobs/e523c894e1c3301d9e3f1dd34a6731751853adb0',  
+      html: 'https://github.com/ZorbaBuda/blog-v4/blob/main/content/posts/the-time-machineW.mdx'
+    }
+  }
+]

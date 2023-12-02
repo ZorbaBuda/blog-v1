@@ -9,7 +9,9 @@ import Link from "next/link";
 // import { PostWithStatus } from "./post-with-status.model";
 
 export default async function page() {
+  // console.log('❤')
   const postsFromGithub = await getAllPosts();
+    console.log("hello", postsFromGithub)
   const generatedPosts = allPosts;
 
   let posts = postsFromGithub

@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html className="inter" lang="en" suppressHydrationWarning>
-      <body className="bg-black text-white">
+      <body className="dark:bg-black dark:text-white text-black bg-white">
         <ThemeProviders>
           <div className="mx-auto ">
             <div className=" ">

@@ -14,6 +14,9 @@ import { defaultTemplate } from "@/data/frontmatter-template";
 import { postData, aboutData } from "@/lib/http-post";
 import dynamic from "next/dynamic";
 import { MDXEditorMethods } from "@mdxeditor/editor";
+
+import { upsertPost, upsertAbout } from "@/lib/admin-backend";
+
 const EditorComp = dynamic(
   () => import("@/components/post-mdxEditor/EditorComponent"),
   { ssr: false }
@@ -31,6 +34,8 @@ export default function Post(props: {
   path: string;
   type: string;
 }) {
+
+  // console.log(props.sha)
   const [postMD, setPostMD] = useState(props.content || defaultTemplate);
   // console.log(props.type);
   const [file, setFile] = useState<File>();
@@ -44,11 +49,12 @@ export default function Post(props: {
   const editorRef = React.useRef<MDXEditorMethods>(null);
 
   function handleChange() {
-    console.log("👌 parent");
+    // console.log("👌 parent");
     const text = editorRef.current?.getMarkdown();
     //TODO what the heck
     if (text !== undefined) setPostMD(text);
   }
+
 
   const onSubmit = () => {
     if (props.type === "post") {

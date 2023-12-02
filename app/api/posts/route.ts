@@ -4,10 +4,10 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
     const req = await request.json();
-    console.log(req.post, '❤')
+    console.log(req.post, '❤', req?.sha)
     const resp = await upsertPost(req.slug, req.post, req?.sha);
-    revalidatePath(`/edit_posts/${req.slug}`);
-    revalidatePath(`/edit_posts`);
+    // revalidatePath(`/edit_posts/${req.slug}`);
+    // revalidatePath(`/edit_posts`);
     return NextResponse.json(resp.data);
 }
 
